@@ -13,6 +13,9 @@ class TopPostView: UIView {
     lazy var authorImage: UIImageView = {
         let i = UIImageView(frame: .zero)
         i.translatesAutoresizingMaskIntoConstraints = false
+        i.backgroundColor = .black
+        i.layer.cornerRadius = 25/2
+        i.layer.masksToBounds = true
         return i
     }()
     
@@ -23,9 +26,7 @@ class TopPostView: UIView {
         b.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         b.setTitle("hector69", for: .normal)
         b.setTitleColor(.black, for: .normal)
-        b.backgroundColor = .black
-        b.layer.cornerRadius = 25
-        b.layer.masksToBounds = true
+        b.titleLabel?.font = .boldSystemFont(ofSize: 12)
         
         return b
     }()
@@ -33,13 +34,14 @@ class TopPostView: UIView {
     lazy var contextualMenuButton: UIButton = {
         let b = UIButton(frame: .zero)
         b.translatesAutoresizingMaskIntoConstraints = false
+        b.setTitleColor(.black, for: .normal)
         b.setTitle("...", for: .normal)
         return b
     }()
     
     init() {
         super.init(frame: .zero)
-        
+        setUpView()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,19 +50,22 @@ class TopPostView: UIView {
     
     func setUpView()  {
         translatesAutoresizingMaskIntoConstraints = false
+        addSubview(authorImage)
+        addSubview(authorNameButton)
+        addSubview(contextualMenuButton)
         
         NSLayoutConstraint.activate([
             authorImage.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             authorImage.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-            authorImage.widthAnchor.constraint(equalToConstant: 50),
-            authorImage.heightAnchor.constraint(equalToConstant: 50),
-            
+            authorImage.widthAnchor.constraint(equalToConstant: 25),
+            authorImage.heightAnchor.constraint(equalToConstant: 25),
+            authorImage.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+
             authorNameButton.leadingAnchor.constraint(equalTo: authorImage.trailingAnchor, constant: 8),
             authorNameButton.centerYAnchor.constraint(equalTo: authorImage.centerYAnchor),
             
             contextualMenuButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
             contextualMenuButton.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-            contextualMenuButton.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
             ])
     }
     
