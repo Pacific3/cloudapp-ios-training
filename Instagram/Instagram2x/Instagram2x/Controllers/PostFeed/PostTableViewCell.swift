@@ -10,15 +10,43 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    private lazy var topView: TopPostView = {
+        let t = TopPostView()
+        return t
+    }()
+    
+    private lazy var postImage: UIImageView = {
+        let i = UIImageView(frame: .zero)
+        i.translatesAutoresizingMaskIntoConstraints = false
+        i.backgroundColor = .red
+        return i
+    }()
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setUpView()
+        
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-
+    
+    func setUpView() {
+        //contentView.addSubview(topView)
+        [topView, postImage].forEach(contentView.addSubview)
+        
+        NSLayoutConstraint.activate([
+            topView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            topView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            topView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            
+            postImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            postImage.topAnchor.constraint(equalTo: topView.bottomAnchor),
+            postImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            postImage.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            postImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            
+            ])
+    }
 }
