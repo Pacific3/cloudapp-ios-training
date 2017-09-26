@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     lazy var tableView: UITableView = {
         let t = UITableView(frame: .zero)
         t.translatesAutoresizingMaskIntoConstraints = false
+        t.register(PostTableViewCell.self, forCellReuseIdentifier: "cell")
         t.delegate = self
         t.dataSource = self
         return t
@@ -54,7 +55,8 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PostTableViewCell
+        cell.selectionStyle = .none
         return cell
         
     }
