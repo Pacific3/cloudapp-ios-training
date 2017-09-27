@@ -31,6 +31,28 @@ class ViewController: UIViewController {
         title = "Instagram"
         view.addSubview(tableView)
         
+//        let constraint = NSLayoutConstraint(item: self.tableView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0)
+//
+//        let views = [
+//            "table": self.tableView
+//        ]
+//
+//        var constrainst = [NSLayoutConstraint]()
+//
+//            constrainst += NSLayoutConstraint.constraints(
+//            withVisualFormat: "V:|[table]-[button]|",
+//            options: NSLayoutFormatOptions(rawValue: 0),
+//            metrics: nil,
+//            views: views)
+//        constrainst += NSLayoutConstraint.constraints(
+//            withVisualFormat: "H:|[table(==button)]|",
+//            options: NSLayoutFormatOptions(rawValue: 0),
+//            metrics: nil,
+//            views: views)
+//
+        
+        
+        
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.topAnchor.constraint(equalTo: view.topAnchor),

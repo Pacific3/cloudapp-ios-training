@@ -65,7 +65,7 @@ class TopPostView: UIView {
             authorNameButton.centerYAnchor.constraint(equalTo: authorImage.centerYAnchor),
             
             contextualMenuButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-            contextualMenuButton.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            contextualMenuButton.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
             ])
     }
     
