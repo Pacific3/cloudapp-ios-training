@@ -38,21 +38,18 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func setUpView() {
-        //contentView.addSubview(topView)
         [topView, postImage, bottomView].forEach(contentView.addSubview)
         
         NSLayoutConstraint.activate([
             topView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             topView.topAnchor.constraint(equalTo: contentView.topAnchor),
             topView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            //topView.bottomAnchor.constraint(equalTo: )
             
             postImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             postImage.topAnchor.constraint(equalTo: topView.bottomAnchor),
             postImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             postImage.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
             postImage.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
-           // postImage.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
             
             bottomView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             bottomView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),

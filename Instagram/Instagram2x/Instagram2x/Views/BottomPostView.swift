@@ -13,7 +13,6 @@ class BottomPostView: UIView {
     lazy var likeButton: UIButton = {
         let l = UIButton(frame: .zero)
         l.translatesAutoresizingMaskIntoConstraints = false
-        //l.setImage(, for: .normal)
         l.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
  
         return l
@@ -39,17 +38,12 @@ class BottomPostView: UIView {
         let s = UIButton(frame: .zero)
         s.translatesAutoresizingMaskIntoConstraints = false
         s.setImage(#imageLiteral(resourceName: "flag"), for: .normal)
-        
         return s
     }()
     
-    lazy var numberLikeButton: UIButton = {
-        let n = UIButton(frame: .zero)
-        n.translatesAutoresizingMaskIntoConstraints = false
-        n.setTitle("85 Me gusta", for:.normal)
-        n.setTitleColor(.black, for: .normal)
-        n.titleLabel?.font = .boldSystemFont(ofSize: 12)
-        
+    lazy var numberLikeButton: LikesButton = {
+        let n = LikesButton()
+        n.numberOfLikes = 83
         return n
     }()
     
@@ -74,13 +68,10 @@ class BottomPostView: UIView {
             
             likeButton.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             likeButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-            likeButton.widthAnchor.constraint(equalToConstant: 25.0),
-            likeButton.heightAnchor.constraint(equalToConstant: 25.0),
             likeButton.bottomAnchor.constraint(equalTo: numberLikeButton.topAnchor),
             
             commentButton.leadingAnchor.constraint(equalTo: likeButton.trailingAnchor, constant: 10),
             commentButton.centerYAnchor.constraint(equalTo: likeButton.centerYAnchor ),
-            
             
             dMButton.leadingAnchor.constraint(equalTo: commentButton.trailingAnchor, constant: 10),
             dMButton.centerYAnchor.constraint(equalTo: commentButton.centerYAnchor),
@@ -88,7 +79,6 @@ class BottomPostView: UIView {
             saveButton.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             saveButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
             
-            //numberLikeButton.topAnchor.constraint(equalTo: likeButton.bottomAnchor),
             numberLikeButton.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             numberLikeButton.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
   
